@@ -99,6 +99,7 @@ h2 {
 
 .toolbar,
 .location-list-panel,
+.delete-panel,
 .add-panel,
 .admin-panel {
   border: 1px solid var(--line);
@@ -182,7 +183,20 @@ button {
   color: var(--accent-dark);
 }
 
+.danger {
+  border-color: rgba(164, 64, 64, 0.3);
+  background: #fff;
+  color: var(--red);
+  padding: 0 14px;
+}
+
+.danger:hover {
+  border-color: var(--red);
+  background: rgba(164, 64, 64, 0.08);
+}
+
 .location-list-panel,
+.delete-panel,
 .add-panel,
 .admin-panel {
   padding: 18px;
@@ -311,10 +325,19 @@ button {
 }
 
 .add-form,
+.delete-form,
 .github-form {
   display: grid;
   grid-template-columns: repeat(4, minmax(150px, 1fr));
   gap: 14px;
+}
+
+.delete-form {
+  align-items: end;
+}
+
+.delete-item-field {
+  grid-column: span 2;
 }
 
 .wide {
@@ -323,7 +346,7 @@ button {
 
 .add-location-controls {
   display: grid;
-  grid-template-columns: minmax(150px, 1fr) auto;
+  grid-template-columns: minmax(150px, 1fr) auto auto;
   align-items: end;
   gap: 10px;
   min-width: 0;
@@ -554,11 +577,13 @@ button {
   }
 
   .add-form,
+  .delete-form,
   .github-form {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .wide,
+  .delete-item-field,
   .token-field,
   .add-location-controls {
     grid-column: 1 / -1;
@@ -581,6 +606,7 @@ button {
 
   .stats,
   .add-form,
+  .delete-form,
   .github-form {
     grid-template-columns: 1fr;
   }

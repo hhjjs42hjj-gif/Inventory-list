@@ -238,12 +238,12 @@ const HARDWIRED_ROOMS = [
   },
   {
     id: "bedroom2",
-    name: "Bedroom 2",
+    name: "Pool Bedroom",
     locations: [emptyLocation("b2-main", "Main Area"), emptyLocation("b2-closet", "Closet"), emptyLocation("b2-dresser", "Dresser")],
   },
   {
     id: "bedroom3",
-    name: "Bedroom 3",
+    name: "Front Bedroom",
     locations: [emptyLocation("b3-main", "Main Area"), emptyLocation("b3-closet", "Closet"), emptyLocation("b3-dresser", "Dresser")],
   },
   {
@@ -320,11 +320,18 @@ const elements = {
   stats: document.querySelector("#stats"),
   searchInput: document.querySelector("#searchInput"),
   resetButton: document.querySelector("#resetButton"),
+  deleteItemForm: document.querySelector("#deleteItemForm"),
+  deleteRoomSelect: document.querySelector("#deleteRoomSelect"),
+  deleteLocationSelect: document.querySelector("#deleteLocationSelect"),
+  deleteItemSelect: document.querySelector("#deleteItemSelect"),
+  deleteItemButton: document.querySelector("#deleteItemButton"),
+  deleteItemStatus: document.querySelector("#deleteItemStatus"),
   form: document.querySelector("#addItemForm"),
   roomSelect: document.querySelector("#roomSelect"),
   locationSelect: document.querySelector("#locationSelect"),
   newLocationName: document.querySelector("#newLocationName"),
   addLocationButton: document.querySelector("#addLocationButton"),
+  deleteLocationButton: document.querySelector("#deleteLocationButton"),
   locationStatus: document.querySelector("#locationStatus"),
   itemName: document.querySelector("#itemName"),
   categorySelect: document.querySelector("#categorySelect"),
@@ -459,11 +466,13 @@ function renderStats() {
 
 function renderSelects() {
   elements.roomSelect.innerHTML = rooms.map((room) => `<option value="${escapeHtml(room.id)}">${escapeHtml(room.name)}</option>`).join("");
+  elements.deleteRoomSelect.innerHTML = rooms.map((room) => `<option value="${escapeHtml(room.id)}">${escapeHtml(room.name)}</option>`).join("");
   elements.categorySelect.innerHTML = CATEGORIES.map((category) => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`).join("");
   elements.conditionSelect.innerHTML = CONDITIONS.map((condition) => `<option value="${escapeHtml(condition)}">${escapeHtml(condition)}</option>`).join("");
   elements.categorySelect.value = "Other";
   elements.conditionSelect.value = "Good";
   renderLocationSelect();
+  renderDeleteLocationSelect();
 }
 
 function renderLocationSelect() {
@@ -471,6 +480,26 @@ function renderLocationSelect() {
   elements.locationSelect.innerHTML = room.locations
     .map((location) => `<option value="${escapeHtml(location.id)}">${escapeHtml(location.name)} (${escapeHtml(location.id)})</option>`)
     .join("");
+}
+
+function renderDeleteLocationSelect() {
+  const room = rooms.find((entry) => entry.id === elements.deleteRoomSelect.value) || rooms[0];
+  elements.deleteLocationSelect.innerHTML = room.locations
+    .map((location) => `<option value="${escapeHtml(location.id)}">${escapeHtml(location.name)} (${escapeHtml(location.id)})</option>`)
+    .join("");
+  renderDeleteItemSelect();
+}
+
+function renderDeleteItemSelect() {
+  const room = rooms.find((entry) => entry.id === elements.deleteRoomSelect.value) || rooms[0];
+  const location = room?.locations.find((entry) => entry.id === elements.deleteLocationSelect.value);
+  const items = location?.items || [];
+
+  elements.deleteItemSelect.innerHTML = items.length
+    ? items.map((inventoryItem) => `<option value="${escapeHtml(inventoryItem.id)}">${escapeHtml(inventoryItem.name)} (${escapeHtml(inventoryItem.id)})</option>`).join("")
+    : `<option value="">No items in this location</option>`;
+  elements.deleteItemSelect.disabled = items.length === 0;
+  elements.deleteItemButton.disabled = items.length === 0;
 }
 
 function renderInventory() {
@@ -630,6 +659,11 @@ function setLocationStatus(message, type = "") {
   elements.locationStatus.className = `mini-status ${type}`.trim();
 }
 
+function setDeleteItemStatus(message, type = "") {
+  elements.deleteItemStatus.textContent = message;
+  elements.deleteItemStatus.className = `mini-status ${type}`.trim();
+}
+
 function addLocation() {
   const room = rooms.find((entry) => entry.id === elements.roomSelect.value);
   const name = elements.newLocationName.value.trim();
@@ -656,9 +690,41 @@ function addLocation() {
   elements.newLocationName.value = "";
   renderLocationSelect();
   elements.locationSelect.value = location.id;
+  elements.deleteRoomSelect.value = room.id;
+  renderDeleteLocationSelect();
+  elements.deleteLocationSelect.value = location.id;
+  renderDeleteItemSelect();
   renderInventory();
   setLocationStatus(`Added ${location.name}. Publish to GitHub to share it.`, "success");
   elements.itemName.focus();
+}
+
+function deleteSelectedLocation() {
+  const room = rooms.find((entry) => entry.id === elements.roomSelect.value);
+  const location = room?.locations.find((entry) => entry.id === elements.locationSelect.value);
+
+  if (!room || !location) {
+    setLocationStatus("Choose a location to delete.", "error");
+    return;
+  }
+
+  const hasItems = location.items.length > 0;
+  const message = hasItems
+    ? `Delete ${location.name} and its ${location.items.length} item${location.items.length === 1 ? "" : "s"}?`
+    : `Delete ${location.name}?`;
+
+  if (!window.confirm(message)) return;
+
+  room.locations = room.locations.filter((entry) => entry.id !== location.id);
+  saveRooms();
+  renderSelects();
+  elements.roomSelect.value = room.id;
+  renderLocationSelect();
+  elements.deleteRoomSelect.value = room.id;
+  renderDeleteLocationSelect();
+  elements.searchInput.value = "";
+  renderInventory();
+  setLocationStatus(`Deleted ${location.name}. Publish to GitHub to share it.`, "success");
 }
 
 function addItem(event) {
@@ -685,10 +751,40 @@ function addItem(event) {
   elements.roomSelect.value = room.id;
   renderLocationSelect();
   elements.locationSelect.value = location.id;
+  elements.deleteRoomSelect.value = room.id;
+  renderDeleteLocationSelect();
+  elements.deleteLocationSelect.value = location.id;
+  renderDeleteItemSelect();
   elements.categorySelect.value = "Other";
   elements.conditionSelect.value = "Good";
   elements.itemName.focus();
   renderInventory();
+}
+
+function deleteSelectedItem(event) {
+  event.preventDefault();
+
+  const room = rooms.find((entry) => entry.id === elements.deleteRoomSelect.value);
+  const location = room?.locations.find((entry) => entry.id === elements.deleteLocationSelect.value);
+  const itemId = elements.deleteItemSelect.value;
+  const inventoryItem = location?.items.find((entry) => entry.id === itemId);
+
+  if (!room || !location || !inventoryItem) {
+    setDeleteItemStatus("Choose an item to delete.", "error");
+    return;
+  }
+
+  if (!window.confirm(`Delete ${inventoryItem.name}?`)) return;
+
+  location.items = location.items.filter((entry) => entry.id !== itemId);
+  saveRooms();
+  elements.roomSelect.value = room.id;
+  renderLocationSelect();
+  elements.locationSelect.value = location.id;
+  renderDeleteItemSelect();
+  elements.searchInput.value = "";
+  renderInventory();
+  setDeleteItemStatus(`Deleted ${inventoryItem.name}. Publish to GitHub to share it.`, "success");
 }
 
 function resetInventory() {
@@ -876,6 +972,7 @@ function escapeHtml(value) {
 
 elements.roomSelect.addEventListener("change", renderLocationSelect);
 elements.addLocationButton.addEventListener("click", addLocation);
+elements.deleteLocationButton.addEventListener("click", deleteSelectedLocation);
 elements.newLocationName.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     event.preventDefault();
@@ -883,6 +980,9 @@ elements.newLocationName.addEventListener("keydown", (event) => {
   }
 });
 elements.form.addEventListener("submit", addItem);
+elements.deleteItemForm.addEventListener("submit", deleteSelectedItem);
+elements.deleteRoomSelect.addEventListener("change", renderDeleteLocationSelect);
+elements.deleteLocationSelect.addEventListener("change", renderDeleteItemSelect);
 elements.searchInput.addEventListener("input", renderInventory);
 elements.resetButton.addEventListener("click", resetInventory);
 elements.githubForm.addEventListener("submit", publishToGitHub);

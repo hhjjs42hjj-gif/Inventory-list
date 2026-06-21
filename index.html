@@ -29,6 +29,26 @@
         <button class="secondary" id="resetButton" type="button">Reset to hardwired list</button>
       </section>
 
+      <section class="delete-panel" aria-label="Delete inventory item">
+        <h2>Delete Item</h2>
+        <form id="deleteItemForm" class="delete-form">
+          <label>
+            <span>Room</span>
+            <select id="deleteRoomSelect" required></select>
+          </label>
+          <label>
+            <span>Location</span>
+            <select id="deleteLocationSelect" required></select>
+          </label>
+          <label class="delete-item-field">
+            <span>Item</span>
+            <select id="deleteItemSelect" required></select>
+          </label>
+          <button class="danger" id="deleteItemButton" type="submit">Delete item</button>
+          <p id="deleteItemStatus" class="mini-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
       <section class="add-panel" aria-label="Add inventory item">
         <h2>Add Item</h2>
         <form id="addItemForm" class="add-form">
@@ -46,6 +66,7 @@
               <input id="newLocationName" type="text" autocomplete="off" placeholder="New cabinet, shelf, drawer" />
             </label>
             <button class="secondary" id="addLocationButton" type="button">Add location</button>
+            <button class="danger" id="deleteLocationButton" type="button">Delete location</button>
             <p id="locationStatus" class="mini-status" role="status" aria-live="polite"></p>
           </div>
           <label>
