@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>House Inventory</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">House Inventory</p>
+          <h1>Inventory List</h1>
+        </div>
+        <div class="stats" id="stats"></div>
+      </header>
+
+      <section class="toolbar" aria-label="Inventory tools">
+        <label class="search">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Item, room, location, id" />
+        </label>
+        <button class="secondary" id="resetButton" type="button">Reset to hardwired list</button>
+      </section>
+
+      <section class="add-panel" aria-label="Add inventory item">
+        <h2>Add Item</h2>
+        <form id="addItemForm" class="add-form">
+          <label>
+            <span>Room</span>
+            <select id="roomSelect" required></select>
+          </label>
+          <label>
+            <span>Location</span>
+            <select id="locationSelect" required></select>
+          </label>
+          <label>
+            <span>Item name</span>
+            <input id="itemName" type="text" required autocomplete="off" />
+          </label>
+          <label>
+            <span>Category</span>
+            <select id="categorySelect" required></select>
+          </label>
+          <label>
+            <span>Condition</span>
+            <select id="conditionSelect" required></select>
+          </label>
+          <label>
+            <span>Value</span>
+            <input id="itemValue" type="text" inputmode="decimal" placeholder="$" />
+          </label>
+          <label class="wide">
+            <span>Notes</span>
+            <input id="itemNotes" type="text" autocomplete="off" />
+          </label>
+          <button class="primary" type="submit">Add item</button>
+        </form>
+      </section>
+
+      <section id="inventory" class="inventory" aria-label="Inventory rooms"></section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

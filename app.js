@@ -1,0 +1,544 @@
+const CATEGORIES = [
+  "Electronics",
+  "Furniture",
+  "Appliances",
+  "Tools",
+  "Clothing",
+  "Kitchen Items",
+  "Books/Media",
+  "Sports/Recreation",
+  "Decor",
+  "Cleaning",
+  "Pool",
+  "Outdoor",
+  "Other",
+];
+
+const CONDITIONS = ["Excellent", "Good", "Fair", "Poor"];
+
+const CATEGORY_COLORS = {
+  Electronics: "#2f67b1",
+  Furniture: "#7256a4",
+  Appliances: "#9b5b12",
+  Tools: "#a44040",
+  Clothing: "#b0497a",
+  "Kitchen Items": "#27735f",
+  "Books/Media": "#4b5db8",
+  "Sports/Recreation": "#147e80",
+  Decor: "#986028",
+  Cleaning: "#5a6b44",
+  Pool: "#176b87",
+  Outdoor: "#6b6f2a",
+  Other: "#667085",
+};
+
+const today = () => new Date().toLocaleDateString("en-US");
+const item = (id, name, category = "Other", condition = "Good", estimatedValue = "", notes = "") => ({
+  id,
+  name,
+  category,
+  condition,
+  estimatedValue,
+  notes,
+  dateAdded: "6/3/2026",
+});
+
+const emptyLocation = (id, name) => ({ id, name, items: [] });
+
+const HARDWIRED_ROOMS = [
+  {
+    id: "kitchen",
+    name: "Kitchen",
+    locations: [
+      {
+        id: "uc1",
+        name: "Upper Cabinet 1",
+        items: [
+          item("uc1-1", "Pyrex measuring cup", "Kitchen Items"),
+          item("uc1-2", "Spice rack", "Kitchen Items"),
+          item("uc1-3", "Air dry clay"),
+          item("uc1-4", "Electric mixer", "Appliances"),
+          item("uc1-5", "Vase", "Decor"),
+        ],
+      },
+      {
+        id: "uc2",
+        name: "Upper Cabinet 2",
+        items: [
+          item("uc2-1", "Fire extinguisher"),
+          item("uc2-2", "Exhaust vent"),
+        ],
+      },
+      {
+        id: "uc3",
+        name: "Upper Cabinet 3",
+        items: [
+          item("uc3-1", "Mugs", "Kitchen Items"),
+          item("uc3-2", "Glasses", "Kitchen Items"),
+          item("uc3-3", "Thermoses", "Kitchen Items"),
+          item("uc3-4", "Lunch boxes", "Kitchen Items"),
+        ],
+      },
+      {
+        id: "uc4",
+        name: "Upper Cabinet 4",
+        items: [item("uc4-1", "Protein powder", "Kitchen Items")],
+      },
+      {
+        id: "uc5",
+        name: "Upper Cabinet 5",
+        items: [
+          item("uc5-1", "Ceramic dishes", "Kitchen Items"),
+          item("uc5-2", "Serving plate", "Kitchen Items"),
+          item("uc5-3", "Glass salad bowls", "Kitchen Items"),
+          item("uc5-4", "Casserole oven dish", "Kitchen Items"),
+        ],
+      },
+      emptyLocation("uc6", "Upper Cabinet 6"),
+      {
+        id: "uc7",
+        name: "Upper Cabinet 7",
+        items: [
+          item("uc7-1", "Glass serving dish", "Kitchen Items"),
+          item("uc7-2", "Grannie's ashes"),
+          item("uc7-3", "Mug drying rack", "Kitchen Items"),
+          item("uc7-4", "Soup bowls", "Kitchen Items"),
+          item("uc7-5", "Plates", "Kitchen Items"),
+          item("uc7-6", "Towels", "Kitchen Items"),
+          item("uc7-7", "Small mixing bowls", "Kitchen Items"),
+        ],
+      },
+      {
+        id: "lc1",
+        name: "Lower Cabinet 1",
+        items: [
+          item("lc1-1", "Tupperware containers", "Kitchen Items"),
+          item("lc1-2", "Pots", "Kitchen Items"),
+          item("lc1-3", "Pot lids", "Kitchen Items"),
+        ],
+      },
+      {
+        id: "lc2",
+        name: "Lower Cabinet 2",
+        items: [
+          item("lc2-1", "Soy sauce", "Kitchen Items"),
+          item("lc2-2", "Vinegar", "Kitchen Items"),
+          item("lc2-3", "Strainers", "Kitchen Items"),
+          item("lc2-4", "Mixer", "Appliances"),
+          item("lc2-5", "Mixing bowl", "Kitchen Items"),
+        ],
+      },
+      {
+        id: "lc3",
+        name: "Lower Cabinet 3",
+        items: [
+          item("lc3-1", "Oven glassware", "Kitchen Items"),
+          item("lc3-2", "Baking pans", "Kitchen Items"),
+          item("lc3-3", "Mixing bowl", "Kitchen Items"),
+          item("lc3-4", "Air fryer insert", "Kitchen Items"),
+        ],
+      },
+      {
+        id: "lc4",
+        name: "Lower Cabinet 4",
+        items: [
+          item("lc4-1", "White ox cleaner", "Cleaning"),
+          item("lc4-2", "Glass top cleaner", "Cleaning"),
+          item("lc4-3", "Dishwasher liquid", "Cleaning"),
+          item("lc4-4", "Cleaning eraser", "Cleaning"),
+          item("lc4-5", "Pink Stuff", "Cleaning"),
+        ],
+      },
+      {
+        id: "lc5",
+        name: "Lower Cabinet 5",
+        items: [
+          item("lc5-1", "Griddle", "Appliances"),
+          item("lc5-2", "Waffle maker", "Appliances"),
+          item("lc5-3", "Drip pan", "Kitchen Items"),
+          item("lc5-4", "Muffin tin", "Kitchen Items"),
+          item("lc5-5", "Ceramic pot", "Kitchen Items"),
+        ],
+      },
+      {
+        id: "d1",
+        name: "Drawer 1",
+        items: [
+          item("d1-1", "Cookie cutters", "Kitchen Items"),
+          item("d1-2", "Cheese grater", "Kitchen Items"),
+          item("d1-3", "Rolling pins", "Kitchen Items"),
+        ],
+      },
+      {
+        id: "d2",
+        name: "Drawer 2",
+        items: [
+          item("d2-1", "Measuring cups", "Kitchen Items"),
+          item("d2-2", "Measuring spoons", "Kitchen Items"),
+          item("d2-3", "Oven mitts", "Kitchen Items"),
+          item("d2-4", "Meat hammer", "Kitchen Items"),
+        ],
+      },
+      {
+        id: "d3",
+        name: "Drawer 3",
+        items: [
+          item("d3-1", "Aluminum foil", "Kitchen Items"),
+          item("d3-2", "Plastic wrap", "Kitchen Items"),
+          item("d3-3", "Parchment paper", "Kitchen Items"),
+        ],
+      },
+      {
+        id: "d4",
+        name: "Drawer 4",
+        items: [item("d4-1", "Sandwich bags", "Kitchen Items")],
+      },
+      {
+        id: "d5",
+        name: "Drawer 5",
+        items: [
+          item("d5-1", "Pizza cutter", "Kitchen Items"),
+          item("d5-2", "Can opener", "Kitchen Items"),
+          item("d5-3", "Whisk", "Kitchen Items"),
+          item("d5-4", "Fish spatula", "Kitchen Items"),
+          item("d5-5", "Wine opener", "Kitchen Items"),
+        ],
+      },
+      {
+        id: "d6",
+        name: "Drawer 6",
+        items: [
+          item("d6-1", "Rubber lid covers", "Kitchen Items"),
+          item("d6-2", "Knife sharpener", "Kitchen Items"),
+          item("d6-3", "Apron", "Clothing"),
+        ],
+      },
+      {
+        id: "d7",
+        name: "Drawer 7",
+        items: [
+          item("d7-1", "Silverware", "Kitchen Items"),
+          item("d7-2", "Chopsticks", "Kitchen Items"),
+          item("d7-3", "S'mores sticks", "Kitchen Items"),
+          item("d7-4", "Fire sticks", "Kitchen Items"),
+        ],
+      },
+      emptyLocation("ls1", "Lazy Susan"),
+    ],
+  },
+  {
+    id: "living-room",
+    name: "Living Room",
+    locations: [emptyLocation("lr-main", "Main Area"), emptyLocation("lr-media", "Media Console")],
+  },
+  {
+    id: "master-bedroom",
+    name: "Master Bedroom",
+    locations: [emptyLocation("mb-main", "Main Area"), emptyLocation("mb-closet", "Closet"), emptyLocation("mb-dresser", "Dresser")],
+  },
+  {
+    id: "bedroom2",
+    name: "Bedroom 2",
+    locations: [emptyLocation("b2-main", "Main Area"), emptyLocation("b2-closet", "Closet"), emptyLocation("b2-dresser", "Dresser")],
+  },
+  {
+    id: "bedroom3",
+    name: "Bedroom 3",
+    locations: [emptyLocation("b3-main", "Main Area"), emptyLocation("b3-closet", "Closet"), emptyLocation("b3-dresser", "Dresser")],
+  },
+  {
+    id: "bathroom",
+    name: "Bathroom",
+    locations: [emptyLocation("bath-vanity", "Vanity"), emptyLocation("bath-linen", "Linen Closet"), emptyLocation("bath-shower", "Shower")],
+  },
+  {
+    id: "garage",
+    name: "Garage",
+    locations: [emptyLocation("garage-main", "Main Area"), emptyLocation("garage-shelves", "Shelves"), emptyLocation("garage-tools", "Tool Area")],
+  },
+  {
+    id: "office",
+    name: "Office",
+    locations: [emptyLocation("office-desk", "Desk"), emptyLocation("office-closet", "Closet"), emptyLocation("office-shelves", "Shelves")],
+  },
+  {
+    id: "dining-room",
+    name: "Dining Room",
+    locations: [emptyLocation("dr-main", "Main Area"), emptyLocation("dr-cabinet", "Dining Cabinet")],
+  },
+  {
+    id: "laundry",
+    name: "Laundry Room",
+    locations: [emptyLocation("laundry-cabinet", "Cabinet"), emptyLocation("laundry-shelf", "Shelf"), emptyLocation("laundry-main", "Main Area")],
+  },
+  {
+    id: "lanai",
+    name: "Lanai",
+    locations: [
+      {
+        id: "lanai-main",
+        name: "Lanai Main Area",
+        items: [
+          item("lanai-main-1", "Single umbrella", "Outdoor"),
+          item("lanai-main-2", "Double umbrella", "Outdoor"),
+          item("lanai-main-3", "Foosball table", "Sports/Recreation"),
+          item("lanai-main-4", "2 egg chairs", "Furniture"),
+          item("lanai-main-5", "L-shaped couch", "Furniture"),
+          item("lanai-main-6", "Dolphin Nautilis pool robot", "Pool"),
+        ],
+      },
+      {
+        id: "pool-wicker-storage-cabinet",
+        name: "Pool Wicker Storage Cabinet",
+        items: [
+          item("pool-wicker-storage-cabinet-1", "Sunscreen", "Outdoor"),
+          item("pool-wicker-storage-cabinet-2", "20 ft extension cord", "Tools"),
+        ],
+      },
+      emptyLocation("oc1", "Outdoor Cabinet Shelf 1"),
+      emptyLocation("oc2", "Outdoor Cabinet Shelf 2"),
+      emptyLocation("oc3", "Outdoor Cabinet Shelf 3"),
+      emptyLocation("oc4", "Outdoor Cabinet Shelf 4"),
+    ],
+  },
+  {
+    id: "shed",
+    name: "Shed",
+    locations: [emptyLocation("shed-main", "Main Area"), emptyLocation("shed-shelves", "Shelves"), emptyLocation("shed-tools", "Tool Area")],
+  },
+];
+
+const STORAGE_KEY = "houseInventory.rooms.v1";
+
+let rooms = loadRooms();
+
+const elements = {
+  inventory: document.querySelector("#inventory"),
+  stats: document.querySelector("#stats"),
+  searchInput: document.querySelector("#searchInput"),
+  resetButton: document.querySelector("#resetButton"),
+  form: document.querySelector("#addItemForm"),
+  roomSelect: document.querySelector("#roomSelect"),
+  locationSelect: document.querySelector("#locationSelect"),
+  itemName: document.querySelector("#itemName"),
+  categorySelect: document.querySelector("#categorySelect"),
+  conditionSelect: document.querySelector("#conditionSelect"),
+  itemValue: document.querySelector("#itemValue"),
+  itemNotes: document.querySelector("#itemNotes"),
+};
+
+function clone(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
+function loadRooms() {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (!saved) return clone(HARDWIRED_ROOMS);
+
+  try {
+    return JSON.parse(saved);
+  } catch {
+    return clone(HARDWIRED_ROOMS);
+  }
+}
+
+function saveRooms() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(rooms));
+}
+
+function totalItems(roomList = rooms) {
+  return roomList.reduce((sum, room) => sum + room.locations.reduce((locSum, location) => locSum + location.items.length, 0), 0);
+}
+
+function allLocations(roomList = rooms) {
+  return roomList.flatMap((room) => room.locations.map((location) => ({ room, location })));
+}
+
+function itemMatches(room, location, inventoryItem, query) {
+  if (!query) return true;
+  const haystack = [
+    room.id,
+    room.name,
+    location.id,
+    location.name,
+    inventoryItem.id,
+    inventoryItem.name,
+    inventoryItem.category,
+    inventoryItem.condition,
+    inventoryItem.notes,
+  ]
+    .join(" ")
+    .toLowerCase();
+
+  return haystack.includes(query);
+}
+
+function filteredRooms() {
+  const query = elements.searchInput.value.trim().toLowerCase();
+  if (!query) return rooms;
+
+  return rooms
+    .map((room) => ({
+      ...room,
+      locations: room.locations
+        .map((location) => ({
+          ...location,
+          items: location.items.filter((inventoryItem) => itemMatches(room, location, inventoryItem, query)),
+        }))
+        .filter((location) => location.items.length > 0 || location.id.toLowerCase().includes(query) || location.name.toLowerCase().includes(query)),
+    }))
+    .filter((room) => room.locations.length > 0 || room.id.toLowerCase().includes(query) || room.name.toLowerCase().includes(query));
+}
+
+function renderStats() {
+  elements.stats.innerHTML = [
+    { value: rooms.length, label: "Rooms" },
+    { value: allLocations().length, label: "Locations" },
+    { value: totalItems(), label: "Items" },
+  ]
+    .map((stat) => `<div class="stat"><strong>${stat.value}</strong><span>${stat.label}</span></div>`)
+    .join("");
+}
+
+function renderSelects() {
+  elements.roomSelect.innerHTML = rooms.map((room) => `<option value="${escapeHtml(room.id)}">${escapeHtml(room.name)}</option>`).join("");
+  elements.categorySelect.innerHTML = CATEGORIES.map((category) => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`).join("");
+  elements.conditionSelect.innerHTML = CONDITIONS.map((condition) => `<option value="${escapeHtml(condition)}">${escapeHtml(condition)}</option>`).join("");
+  elements.categorySelect.value = "Other";
+  elements.conditionSelect.value = "Good";
+  renderLocationSelect();
+}
+
+function renderLocationSelect() {
+  const room = rooms.find((entry) => entry.id === elements.roomSelect.value) || rooms[0];
+  elements.locationSelect.innerHTML = room.locations
+    .map((location) => `<option value="${escapeHtml(location.id)}">${escapeHtml(location.name)} (${escapeHtml(location.id)})</option>`)
+    .join("");
+}
+
+function renderInventory() {
+  const visibleRooms = filteredRooms();
+  elements.inventory.innerHTML = visibleRooms.map(renderRoom).join("");
+  renderStats();
+}
+
+function renderRoom(room) {
+  const roomItemCount = totalItems([room]);
+  return `
+    <article class="room">
+      <header class="room-header">
+        <div class="room-title">
+          <h2>${escapeHtml(room.name)}</h2>
+          <span class="id-pill">${escapeHtml(room.id)}</span>
+        </div>
+        <span class="count-pill">${roomItemCount} ${roomItemCount === 1 ? "item" : "items"}</span>
+      </header>
+      <div class="locations">
+        ${room.locations.map((location) => renderLocation(location)).join("")}
+      </div>
+    </article>
+  `;
+}
+
+function renderLocation(location) {
+  return `
+    <section class="location">
+      <header class="location-header">
+        <div>
+          <h3>${escapeHtml(location.name)}</h3>
+          <span class="id-pill">${escapeHtml(location.id)}</span>
+        </div>
+        <span class="count-pill">${location.items.length}</span>
+      </header>
+      ${
+        location.items.length
+          ? `<ul class="items">${location.items.map((inventoryItem) => renderItem(inventoryItem)).join("")}</ul>`
+          : `<p class="empty">No items yet.</p>`
+      }
+    </section>
+  `;
+}
+
+function renderItem(inventoryItem) {
+  const color = CATEGORY_COLORS[inventoryItem.category] || CATEGORY_COLORS.Other;
+  const value = inventoryItem.estimatedValue ? ` · ${escapeHtml(inventoryItem.estimatedValue)}` : "";
+  const notes = inventoryItem.notes ? `<div class="notes">${escapeHtml(inventoryItem.notes)}</div>` : "";
+
+  return `
+    <li class="item">
+      <div>
+        <p class="item-name">${escapeHtml(inventoryItem.name)}</p>
+        <div class="item-meta">
+          <span class="category-pill" style="background:${color}">${escapeHtml(inventoryItem.category)}</span>
+          <span class="condition">${escapeHtml(inventoryItem.condition)}${value}</span>
+        </div>
+      </div>
+      <span class="id-pill">${escapeHtml(inventoryItem.id)}</span>
+      ${notes}
+    </li>
+  `;
+}
+
+function nextItemId(location) {
+  let highest = 0;
+  for (const inventoryItem of location.items) {
+    const match = inventoryItem.id.match(/-(\d+)$/);
+    if (match) highest = Math.max(highest, Number(match[1]));
+  }
+  return `${location.id}-${highest + 1}`;
+}
+
+function addItem(event) {
+  event.preventDefault();
+
+  const room = rooms.find((entry) => entry.id === elements.roomSelect.value);
+  const location = room?.locations.find((entry) => entry.id === elements.locationSelect.value);
+  const name = elements.itemName.value.trim();
+
+  if (!room || !location || !name) return;
+
+  location.items.push({
+    id: nextItemId(location),
+    name,
+    category: elements.categorySelect.value,
+    condition: elements.conditionSelect.value,
+    estimatedValue: elements.itemValue.value.trim(),
+    notes: elements.itemNotes.value.trim(),
+    dateAdded: today(),
+  });
+
+  saveRooms();
+  elements.form.reset();
+  elements.roomSelect.value = room.id;
+  renderLocationSelect();
+  elements.locationSelect.value = location.id;
+  elements.categorySelect.value = "Other";
+  elements.conditionSelect.value = "Good";
+  elements.itemName.focus();
+  renderInventory();
+}
+
+function resetInventory() {
+  rooms = clone(HARDWIRED_ROOMS);
+  saveRooms();
+  elements.searchInput.value = "";
+  renderSelects();
+  renderInventory();
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+elements.roomSelect.addEventListener("change", renderLocationSelect);
+elements.form.addEventListener("submit", addItem);
+elements.searchInput.addEventListener("input", renderInventory);
+elements.resetButton.addEventListener("click", resetInventory);
+
+renderSelects();
+renderInventory();
