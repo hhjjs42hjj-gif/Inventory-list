@@ -59,6 +59,46 @@
         </form>
       </section>
 
+      <section class="admin-panel" aria-label="GitHub admin sync">
+        <div class="admin-heading">
+          <div>
+            <h2>GitHub Admin Sync</h2>
+            <p>Publish the current inventory to your GitHub repo so every device loads the same list.</p>
+          </div>
+          <span class="id-pill">inventory-data.json</span>
+        </div>
+        <form id="githubForm" class="github-form">
+          <label>
+            <span>Owner</span>
+            <input id="githubOwner" type="text" autocomplete="username" placeholder="github username" required />
+          </label>
+          <label>
+            <span>Repository</span>
+            <input id="githubRepo" type="text" placeholder="inventory-list" required />
+          </label>
+          <label>
+            <span>Branch</span>
+            <input id="githubBranch" type="text" value="main" required />
+          </label>
+          <label>
+            <span>Data path</span>
+            <input id="githubPath" type="text" value="inventory-data.json" required />
+          </label>
+          <label class="token-field">
+            <span>GitHub token</span>
+            <input id="githubToken" type="password" autocomplete="off" placeholder="Fine-grained token with Contents write" required />
+          </label>
+          <div class="admin-actions">
+            <button class="primary" id="publishButton" type="submit">Publish to GitHub</button>
+            <button class="secondary" id="reloadGitHubButton" type="button">Reload GitHub data</button>
+          </div>
+        </form>
+        <p class="admin-note">
+          Use a fine-grained GitHub token limited to this repository with Contents read/write access. The token is not saved by this page.
+        </p>
+        <p id="githubStatus" class="status-line" role="status" aria-live="polite"></p>
+      </section>
+
       <section id="inventory" class="inventory" aria-label="Inventory rooms"></section>
     </main>
 

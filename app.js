@@ -309,8 +309,10 @@ const HARDWIRED_ROOMS = [
 ];
 
 const STORAGE_KEY = "houseInventory.rooms.v1";
+const GITHUB_SETTINGS_KEY = "houseInventory.githubSettings.v1";
+const DEFAULT_DATA_PATH = "inventory-data.json";
 
-let rooms = loadRooms();
+let rooms = clone(HARDWIRED_ROOMS);
 
 const elements = {
   inventory: document.querySelector("#inventory"),
@@ -325,13 +327,25 @@ const elements = {
   conditionSelect: document.querySelector("#conditionSelect"),
   itemValue: document.querySelector("#itemValue"),
   itemNotes: document.querySelector("#itemNotes"),
+  githubForm: document.querySelector("#githubForm"),
+  githubOwner: document.querySelector("#githubOwner"),
+  githubRepo: document.querySelector("#githubRepo"),
+  githubBranch: document.querySelector("#githubBranch"),
+  githubPath: document.querySelector("#githubPath"),
+  githubToken: document.querySelector("#githubToken"),
+  githubStatus: document.querySelector("#githubStatus"),
+  publishButton: document.querySelector("#publishButton"),
+  reloadGitHubButton: document.querySelector("#reloadGitHubButton"),
 };
 
 function clone(value) {
   return JSON.parse(JSON.stringify(value));
 }
 
-function loadRooms() {
+async function loadRooms() {
+  const githubRooms = await fetchPublishedRooms();
+  if (githubRooms) return githubRooms;
+
   const saved = localStorage.getItem(STORAGE_KEY);
   if (!saved) return clone(HARDWIRED_ROOMS);
 
@@ -344,6 +358,45 @@ function loadRooms() {
 
 function saveRooms() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(rooms));
+}
+
+async function fetchPublishedRooms(path = DEFAULT_DATA_PATH) {
+  try {
+    const response = await fetch(`${path}?v=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) return null;
+
+    const data = await response.json();
+    const roomData = Array.isArray(data) ? data : data.rooms;
+    return normalizeRooms(roomData);
+  } catch {
+    return null;
+  }
+}
+
+function normalizeRooms(roomData) {
+  if (!Array.isArray(roomData)) return null;
+
+  return roomData.map((room) => ({
+    id: String(room.id || ""),
+    name: String(room.name || room.id || "Room"),
+    locations: Array.isArray(room.locations)
+      ? room.locations.map((location) => ({
+          id: String(location.id || ""),
+          name: String(location.name || location.id || "Location"),
+          items: Array.isArray(location.items)
+            ? location.items.map((inventoryItem) => ({
+                id: String(inventoryItem.id || ""),
+                name: String(inventoryItem.name || "Unnamed item"),
+                category: inventoryItem.category || "Other",
+                condition: inventoryItem.condition || "Good",
+                estimatedValue: inventoryItem.estimatedValue || "",
+                notes: inventoryItem.notes || "",
+                dateAdded: inventoryItem.dateAdded || "",
+              }))
+            : [],
+        }))
+      : [],
+  }));
 }
 
 function totalItems(roomList = rooms) {
@@ -526,6 +579,172 @@ function resetInventory() {
   renderInventory();
 }
 
+function inferGitHubSettings() {
+  const saved = localStorage.getItem(GITHUB_SETTINGS_KEY);
+  if (saved) {
+    try {
+      return JSON.parse(saved);
+    } catch {
+      // Fall through to URL inference.
+    }
+  }
+
+  const host = window.location.hostname;
+  const pathParts = window.location.pathname.split("/").filter(Boolean);
+  const isGithubPages = host.endsWith(".github.io");
+  return {
+    owner: isGithubPages ? host.replace(".github.io", "") : "",
+    repo: isGithubPages && pathParts.length ? pathParts[0] : "",
+    branch: "main",
+    path: DEFAULT_DATA_PATH,
+  };
+}
+
+function populateGitHubSettings() {
+  const settings = inferGitHubSettings();
+  elements.githubOwner.value = settings.owner || "";
+  elements.githubRepo.value = settings.repo || "";
+  elements.githubBranch.value = settings.branch || "main";
+  elements.githubPath.value = settings.path || DEFAULT_DATA_PATH;
+}
+
+function currentGitHubSettings() {
+  return {
+    owner: elements.githubOwner.value.trim(),
+    repo: elements.githubRepo.value.trim(),
+    branch: elements.githubBranch.value.trim() || "main",
+    path: elements.githubPath.value.trim() || DEFAULT_DATA_PATH,
+  };
+}
+
+function saveGitHubSettings(settings) {
+  localStorage.setItem(GITHUB_SETTINGS_KEY, JSON.stringify(settings));
+}
+
+function setGitHubStatus(message, type = "") {
+  elements.githubStatus.textContent = message;
+  elements.githubStatus.className = `status-line ${type}`.trim();
+}
+
+function githubHeaders(token) {
+  return {
+    Accept: "application/vnd.github+json",
+    Authorization: `Bearer ${token}`,
+    "Content-Type": "application/json",
+    "X-GitHub-Api-Version": "2022-11-28",
+  };
+}
+
+function toBase64(value) {
+  const bytes = new TextEncoder().encode(value);
+  let binary = "";
+  bytes.forEach((byte) => {
+    binary += String.fromCharCode(byte);
+  });
+  return btoa(binary);
+}
+
+async function githubRequest(url, options) {
+  const response = await fetch(url, options);
+  if (response.ok) return response.json();
+
+  let detail = `${response.status} ${response.statusText}`;
+  try {
+    const body = await response.json();
+    if (body.message) detail = body.message;
+  } catch {
+    // Keep the HTTP status text.
+  }
+
+  const error = new Error(detail);
+  error.status = response.status;
+  throw error;
+}
+
+async function getGitHubFile(settings, token) {
+  const encodedPath = settings.path.split("/").map(encodeURIComponent).join("/");
+  const url = `https://api.github.com/repos/${encodeURIComponent(settings.owner)}/${encodeURIComponent(settings.repo)}/contents/${encodedPath}?ref=${encodeURIComponent(settings.branch)}`;
+
+  try {
+    return await githubRequest(url, {
+      method: "GET",
+      headers: githubHeaders(token),
+    });
+  } catch (error) {
+    if (error.status === 404) return null;
+    throw error;
+  }
+}
+
+async function publishToGitHub(event) {
+  event.preventDefault();
+
+  const settings = currentGitHubSettings();
+  const token = elements.githubToken.value.trim();
+
+  if (!settings.owner || !settings.repo || !settings.branch || !settings.path || !token) {
+    setGitHubStatus("Fill in the GitHub owner, repository, branch, path, and token.", "error");
+    return;
+  }
+
+  elements.publishButton.disabled = true;
+  setGitHubStatus("Publishing inventory to GitHub...");
+
+  try {
+    const existingFile = await getGitHubFile(settings, token);
+    const payload = {
+      updatedAt: new Date().toISOString(),
+      rooms,
+    };
+    const encodedPath = settings.path.split("/").map(encodeURIComponent).join("/");
+    const url = `https://api.github.com/repos/${encodeURIComponent(settings.owner)}/${encodeURIComponent(settings.repo)}/contents/${encodedPath}`;
+    const body = {
+      message: `Update inventory data ${new Date().toLocaleString("en-US")}`,
+      content: toBase64(`${JSON.stringify(payload, null, 2)}\n`),
+      branch: settings.branch,
+    };
+
+    if (existingFile?.sha) body.sha = existingFile.sha;
+
+    const result = await githubRequest(url, {
+      method: "PUT",
+      headers: githubHeaders(token),
+      body: JSON.stringify(body),
+    });
+
+    saveRooms();
+    saveGitHubSettings(settings);
+    setGitHubStatus(`Published ${totalItems()} items. Commit ${result.commit.sha.slice(0, 7)}.`, "success");
+  } catch (error) {
+    setGitHubStatus(`GitHub publish failed: ${error.message}`, "error");
+  } finally {
+    elements.publishButton.disabled = false;
+  }
+}
+
+async function reloadGitHubData() {
+  const settings = currentGitHubSettings();
+  const path = settings.path || DEFAULT_DATA_PATH;
+
+  elements.reloadGitHubButton.disabled = true;
+  setGitHubStatus("Reloading published inventory data...");
+
+  const githubRooms = await fetchPublishedRooms(path);
+  if (githubRooms) {
+    rooms = githubRooms;
+    saveRooms();
+    saveGitHubSettings(settings);
+    elements.searchInput.value = "";
+    renderSelects();
+    renderInventory();
+    setGitHubStatus(`Reloaded ${totalItems()} items from ${path}.`, "success");
+  } else {
+    setGitHubStatus(`Could not load ${path}. Publish once first, or check the path.`, "error");
+  }
+
+  elements.reloadGitHubButton.disabled = false;
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -539,6 +758,14 @@ elements.roomSelect.addEventListener("change", renderLocationSelect);
 elements.form.addEventListener("submit", addItem);
 elements.searchInput.addEventListener("input", renderInventory);
 elements.resetButton.addEventListener("click", resetInventory);
+elements.githubForm.addEventListener("submit", publishToGitHub);
+elements.reloadGitHubButton.addEventListener("click", reloadGitHubData);
 
-renderSelects();
-renderInventory();
+async function init() {
+  rooms = await loadRooms();
+  populateGitHubSettings();
+  renderSelects();
+  renderInventory();
+}
+
+init();

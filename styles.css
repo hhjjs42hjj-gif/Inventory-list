@@ -98,7 +98,8 @@ h2 {
 }
 
 .toolbar,
-.add-panel {
+.add-panel,
+.admin-panel {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel);
@@ -180,12 +181,14 @@ button {
   color: var(--accent-dark);
 }
 
-.add-panel {
+.add-panel,
+.admin-panel {
   padding: 18px;
   margin-bottom: 22px;
 }
 
-.add-form {
+.add-form,
+.github-form {
   display: grid;
   grid-template-columns: repeat(4, minmax(150px, 1fr));
   gap: 14px;
@@ -193,6 +196,59 @@ button {
 
 .wide {
   grid-column: span 3;
+}
+
+.admin-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.admin-heading h2 {
+  margin-bottom: 4px;
+}
+
+.admin-heading p,
+.admin-note,
+.status-line {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+
+.token-field {
+  grid-column: span 2;
+}
+
+.admin-actions {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+}
+
+.admin-actions button {
+  flex: 1;
+}
+
+.admin-note {
+  margin-top: 12px;
+}
+
+.status-line {
+  min-height: 20px;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.status-line.success {
+  color: var(--green);
+}
+
+.status-line.error {
+  color: var(--red);
 }
 
 .inventory {
@@ -348,11 +404,17 @@ button {
     width: 100%;
   }
 
-  .add-form {
+  .add-form,
+  .github-form {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .wide {
+  .wide,
+  .token-field {
+    grid-column: 1 / -1;
+  }
+
+  .admin-actions {
     grid-column: 1 / -1;
   }
 }
@@ -368,7 +430,8 @@ button {
   }
 
   .stats,
-  .add-form {
+  .add-form,
+  .github-form {
     grid-template-columns: 1fr;
   }
 
