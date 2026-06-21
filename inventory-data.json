@@ -1,0 +1,1089 @@
+{
+  "updatedAt": "2026-06-21T22:43:19.085Z",
+  "rooms": [
+    {
+      "id": "kitchen",
+      "name": "Kitchen",
+      "locations": [
+        {
+          "id": "uc1",
+          "name": "Upper Cabinet 1",
+          "items": [
+            {
+              "id": "uc1-1",
+              "name": "Pyrex measuring cup",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "uc1-2",
+              "name": "Spice rack",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "uc1-3",
+              "name": "Air dry clay",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "uc1-4",
+              "name": "Electric mixer",
+              "category": "Appliances",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "uc1-5",
+              "name": "Vase",
+              "category": "Decor",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "uc2",
+          "name": "Upper Cabinet 2",
+          "items": [
+            {
+              "id": "uc2-1",
+              "name": "Fire extinguisher",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "uc2-2",
+              "name": "Exhaust vent",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "uc3",
+          "name": "Upper Cabinet 3",
+          "items": [
+            {
+              "id": "uc3-1",
+              "name": "Mugs",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "uc3-2",
+              "name": "Glasses",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "uc3-3",
+              "name": "Thermoses",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "uc3-4",
+              "name": "Lunch boxes",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "uc4",
+          "name": "Upper Cabinet 4",
+          "items": [
+            {
+              "id": "uc4-1",
+              "name": "Protein powder",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "uc5",
+          "name": "Upper Cabinet 5",
+          "items": [
+            {
+              "id": "uc5-1",
+              "name": "Ceramic dishes",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "uc5-2",
+              "name": "Serving plate",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "uc5-3",
+              "name": "Glass salad bowls",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "uc5-4",
+              "name": "Casserole oven dish",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "uc6",
+          "name": "Upper Cabinet 6",
+          "items": []
+        },
+        {
+          "id": "uc7",
+          "name": "Upper Cabinet 7",
+          "items": [
+            {
+              "id": "uc7-1",
+              "name": "Glass serving dish",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "uc7-2",
+              "name": "Grannie's ashes",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "uc7-3",
+              "name": "Mug drying rack",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "uc7-4",
+              "name": "Soup bowls",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "uc7-5",
+              "name": "Plates",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "uc7-6",
+              "name": "Towels",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "uc7-7",
+              "name": "Small mixing bowls",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "lc1",
+          "name": "Lower Cabinet 1",
+          "items": [
+            {
+              "id": "lc1-1",
+              "name": "Tupperware containers",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lc1-2",
+              "name": "Pots",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lc1-3",
+              "name": "Pot lids",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "lc2",
+          "name": "Lower Cabinet 2",
+          "items": [
+            {
+              "id": "lc2-1",
+              "name": "Soy sauce",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lc2-2",
+              "name": "Vinegar",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lc2-3",
+              "name": "Strainers",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lc2-4",
+              "name": "Mixer",
+              "category": "Appliances",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lc2-5",
+              "name": "Mixing bowl",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "lc3",
+          "name": "Lower Cabinet 3",
+          "items": [
+            {
+              "id": "lc3-1",
+              "name": "Oven glassware",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lc3-2",
+              "name": "Baking pans",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lc3-3",
+              "name": "Mixing bowl",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lc3-4",
+              "name": "Air fryer insert",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "lc4",
+          "name": "Lower Cabinet 4",
+          "items": [
+            {
+              "id": "lc4-1",
+              "name": "White ox cleaner",
+              "category": "Cleaning",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lc4-2",
+              "name": "Glass top cleaner",
+              "category": "Cleaning",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lc4-3",
+              "name": "Dishwasher liquid",
+              "category": "Cleaning",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lc4-4",
+              "name": "Cleaning eraser",
+              "category": "Cleaning",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lc4-5",
+              "name": "Pink Stuff",
+              "category": "Cleaning",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "lc5",
+          "name": "Lower Cabinet 5",
+          "items": [
+            {
+              "id": "lc5-1",
+              "name": "Griddle",
+              "category": "Appliances",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lc5-2",
+              "name": "Waffle maker",
+              "category": "Appliances",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lc5-3",
+              "name": "Drip pan",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lc5-4",
+              "name": "Muffin tin",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lc5-5",
+              "name": "Ceramic pot",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "d1",
+          "name": "Drawer 1",
+          "items": [
+            {
+              "id": "d1-1",
+              "name": "Cookie cutters",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "d1-2",
+              "name": "Cheese grater",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "d1-3",
+              "name": "Rolling pins",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "d2",
+          "name": "Drawer 2",
+          "items": [
+            {
+              "id": "d2-1",
+              "name": "Measuring cups",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "d2-2",
+              "name": "Measuring spoons",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "d2-3",
+              "name": "Oven mitts",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "d2-4",
+              "name": "Meat hammer",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "d3",
+          "name": "Drawer 3",
+          "items": [
+            {
+              "id": "d3-1",
+              "name": "Aluminum foil",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "d3-2",
+              "name": "Plastic wrap",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "d3-3",
+              "name": "Parchment paper",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "d4",
+          "name": "Drawer 4",
+          "items": [
+            {
+              "id": "d4-1",
+              "name": "Sandwich bags",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "d5",
+          "name": "Drawer 5",
+          "items": [
+            {
+              "id": "d5-1",
+              "name": "Pizza cutter",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "d5-2",
+              "name": "Can opener",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "d5-3",
+              "name": "Whisk",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "d5-4",
+              "name": "Fish spatula",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "d5-5",
+              "name": "Wine opener",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "d6",
+          "name": "Drawer 6",
+          "items": [
+            {
+              "id": "d6-1",
+              "name": "Rubber lid covers",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "d6-2",
+              "name": "Knife sharpener",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "d6-3",
+              "name": "Apron",
+              "category": "Clothing",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "d7",
+          "name": "Drawer 7",
+          "items": [
+            {
+              "id": "d7-1",
+              "name": "Silverware",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "d7-2",
+              "name": "Chopsticks",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "d7-3",
+              "name": "S'mores sticks",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "d7-4",
+              "name": "Fire sticks",
+              "category": "Kitchen Items",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "ls1",
+          "name": "Lazy Susan",
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "living-room",
+      "name": "Living Room",
+      "locations": [
+        {
+          "id": "lr-main",
+          "name": "Main Area",
+          "items": [
+            {
+              "id": "lr-main-1",
+              "name": "Wurlitzer Spinet Piano",
+              "category": "Furniture",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/21/2026"
+            }
+          ]
+        },
+        {
+          "id": "lr-media",
+          "name": "Media Console",
+          "items": [
+            {
+              "id": "lr-media-1",
+              "name": "52” Samsung TV",
+              "category": "Electronics",
+              "condition": "Good",
+              "estimatedValue": "350",
+              "notes": "",
+              "dateAdded": "6/21/2026"
+            },
+            {
+              "id": "lr-media-2",
+              "name": "Sectional couch",
+              "category": "Furniture",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/21/2026"
+            },
+            {
+              "id": "lr-media-3",
+              "name": "Olive tree",
+              "category": "Decor",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/21/2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "master-bedroom",
+      "name": "Master Bedroom",
+      "locations": [
+        {
+          "id": "mb-main",
+          "name": "Main Area",
+          "items": []
+        },
+        {
+          "id": "mb-closet",
+          "name": "Closet",
+          "items": []
+        },
+        {
+          "id": "mb-dresser",
+          "name": "Dresser",
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "bedroom2",
+      "name": "Bedroom 2",
+      "locations": [
+        {
+          "id": "b2-main",
+          "name": "Main Area",
+          "items": []
+        },
+        {
+          "id": "b2-closet",
+          "name": "Closet",
+          "items": []
+        },
+        {
+          "id": "b2-dresser",
+          "name": "Dresser",
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "bedroom3",
+      "name": "Bedroom 3",
+      "locations": [
+        {
+          "id": "b3-main",
+          "name": "Main Area",
+          "items": []
+        },
+        {
+          "id": "b3-closet",
+          "name": "Closet",
+          "items": []
+        },
+        {
+          "id": "b3-dresser",
+          "name": "Dresser",
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "bathroom",
+      "name": "Bathroom",
+      "locations": [
+        {
+          "id": "bath-vanity",
+          "name": "Vanity",
+          "items": []
+        },
+        {
+          "id": "bath-linen",
+          "name": "Linen Closet",
+          "items": []
+        },
+        {
+          "id": "bath-shower",
+          "name": "Shower",
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "garage",
+      "name": "Garage",
+      "locations": [
+        {
+          "id": "garage-main",
+          "name": "Main Area",
+          "items": []
+        },
+        {
+          "id": "garage-shelves",
+          "name": "Shelves",
+          "items": []
+        },
+        {
+          "id": "garage-tools",
+          "name": "Tool Area",
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "office",
+      "name": "Office",
+      "locations": [
+        {
+          "id": "office-desk",
+          "name": "Desk",
+          "items": []
+        },
+        {
+          "id": "office-closet",
+          "name": "Closet",
+          "items": []
+        },
+        {
+          "id": "office-shelves",
+          "name": "Shelves",
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "dining-room",
+      "name": "Dining Room",
+      "locations": [
+        {
+          "id": "dr-main",
+          "name": "Main Area",
+          "items": []
+        },
+        {
+          "id": "dr-cabinet",
+          "name": "Dining Cabinet",
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "laundry",
+      "name": "Laundry Room",
+      "locations": [
+        {
+          "id": "laundry-cabinet",
+          "name": "Cabinet",
+          "items": []
+        },
+        {
+          "id": "laundry-shelf",
+          "name": "Shelf",
+          "items": []
+        },
+        {
+          "id": "laundry-main",
+          "name": "Main Area",
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "lanai",
+      "name": "Lanai",
+      "locations": [
+        {
+          "id": "lanai-main",
+          "name": "Lanai Main Area",
+          "items": [
+            {
+              "id": "lanai-main-1",
+              "name": "Single umbrella",
+              "category": "Outdoor",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lanai-main-2",
+              "name": "Double umbrella",
+              "category": "Outdoor",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lanai-main-3",
+              "name": "Foosball table",
+              "category": "Sports/Recreation",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lanai-main-4",
+              "name": "2 egg chairs",
+              "category": "Furniture",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lanai-main-5",
+              "name": "L-shaped couch",
+              "category": "Furniture",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lanai-main-6",
+              "name": "Dolphin Nautilis pool robot",
+              "category": "Pool",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "pool-wicker-storage-cabinet",
+          "name": "Pool Wicker Storage Cabinet",
+          "items": [
+            {
+              "id": "pool-wicker-storage-cabinet-1",
+              "name": "Sunscreen",
+              "category": "Outdoor",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "pool-wicker-storage-cabinet-2",
+              "name": "20 ft extension cord",
+              "category": "Tools",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/3/2026"
+            }
+          ]
+        },
+        {
+          "id": "oc1",
+          "name": "Outdoor Cabinet Shelf 1",
+          "items": []
+        },
+        {
+          "id": "oc2",
+          "name": "Outdoor Cabinet Shelf 2",
+          "items": []
+        },
+        {
+          "id": "oc3",
+          "name": "Outdoor Cabinet Shelf 3",
+          "items": []
+        },
+        {
+          "id": "oc4",
+          "name": "Outdoor Cabinet Shelf 4",
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "shed",
+      "name": "Shed",
+      "locations": [
+        {
+          "id": "shed-main",
+          "name": "Main Area",
+          "items": []
+        },
+        {
+          "id": "shed-shelves",
+          "name": "Shelves",
+          "items": []
+        },
+        {
+          "id": "shed-tools",
+          "name": "Tool Area",
+          "items": []
+        }
+      ]
+    }
+  ]
+}
