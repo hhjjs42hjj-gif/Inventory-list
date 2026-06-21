@@ -98,6 +98,7 @@ h2 {
 }
 
 .toolbar,
+.location-list-panel,
 .add-panel,
 .admin-panel {
   border: 1px solid var(--line);
@@ -181,10 +182,132 @@ button {
   color: var(--accent-dark);
 }
 
+.location-list-panel,
 .add-panel,
 .admin-panel {
   padding: 18px;
   margin-bottom: 22px;
+}
+
+.location-list-panel {
+  margin-bottom: 18px;
+}
+
+.location-list {
+  display: grid;
+  gap: 8px;
+}
+
+.room-summary {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfd;
+  overflow: hidden;
+}
+
+.room-summary summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 48px;
+  padding: 11px 12px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.room-summary summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary-main,
+.summary-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.summary-main strong {
+  font-size: 15px;
+}
+
+.expand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.room-summary[open] .expand-mark {
+  transform: rotate(45deg);
+}
+
+.summary-locations {
+  display: grid;
+  gap: 8px;
+  border-top: 1px solid var(--line);
+  padding: 12px;
+}
+
+.summary-location {
+  border: 1px solid #ecf0f4;
+  border-radius: 8px;
+  background: #fff;
+  padding: 10px;
+}
+
+.summary-location-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.summary-location-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  min-width: 0;
+}
+
+.summary-location-title strong {
+  line-height: 1.25;
+}
+
+.summary-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+  border: 1px solid #ecf0f4;
+  border-radius: 6px;
+  background: #fbfcfd;
+  padding: 7px 8px;
+  font-size: 13px;
+}
+
+.summary-item span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .add-form,
@@ -196,6 +319,32 @@ button {
 
 .wide {
   grid-column: span 3;
+}
+
+.add-location-controls {
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) auto;
+  align-items: end;
+  gap: 10px;
+  min-width: 0;
+}
+
+.mini-status {
+  grid-column: 1 / -1;
+  min-height: 18px;
+  margin: -4px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.mini-status.success {
+  color: var(--green);
+}
+
+.mini-status.error {
+  color: var(--red);
 }
 
 .admin-heading {
@@ -410,7 +559,8 @@ button {
   }
 
   .wide,
-  .token-field {
+  .token-field,
+  .add-location-controls {
     grid-column: 1 / -1;
   }
 
@@ -448,5 +598,9 @@ button {
 
   button {
     width: 100%;
+  }
+
+  .add-location-controls {
+    grid-template-columns: 1fr;
   }
 }

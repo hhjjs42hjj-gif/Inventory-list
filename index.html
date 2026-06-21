@@ -16,6 +16,11 @@
         <div class="stats" id="stats"></div>
       </header>
 
+      <section class="location-list-panel" aria-label="Location list">
+        <h2>Location List</h2>
+        <div id="locationList" class="location-list"></div>
+      </section>
+
       <section class="toolbar" aria-label="Inventory tools">
         <label class="search">
           <span>Search</span>
@@ -35,6 +40,14 @@
             <span>Location</span>
             <select id="locationSelect" required></select>
           </label>
+          <div class="add-location-controls">
+            <label>
+              <span>Add location</span>
+              <input id="newLocationName" type="text" autocomplete="off" placeholder="New cabinet, shelf, drawer" />
+            </label>
+            <button class="secondary" id="addLocationButton" type="button">Add location</button>
+            <p id="locationStatus" class="mini-status" role="status" aria-live="polite"></p>
+          </div>
           <label>
             <span>Item name</span>
             <input id="itemName" type="text" required autocomplete="off" />

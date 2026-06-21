@@ -315,6 +315,7 @@ const DEFAULT_DATA_PATH = "inventory-data.json";
 let rooms = clone(HARDWIRED_ROOMS);
 
 const elements = {
+  locationList: document.querySelector("#locationList"),
   inventory: document.querySelector("#inventory"),
   stats: document.querySelector("#stats"),
   searchInput: document.querySelector("#searchInput"),
@@ -322,6 +323,9 @@ const elements = {
   form: document.querySelector("#addItemForm"),
   roomSelect: document.querySelector("#roomSelect"),
   locationSelect: document.querySelector("#locationSelect"),
+  newLocationName: document.querySelector("#newLocationName"),
+  addLocationButton: document.querySelector("#addLocationButton"),
+  locationStatus: document.querySelector("#locationStatus"),
   itemName: document.querySelector("#itemName"),
   categorySelect: document.querySelector("#categorySelect"),
   conditionSelect: document.querySelector("#conditionSelect"),
@@ -472,7 +476,62 @@ function renderLocationSelect() {
 function renderInventory() {
   const visibleRooms = filteredRooms();
   elements.inventory.innerHTML = visibleRooms.map(renderRoom).join("");
+  renderLocationList();
   renderStats();
+}
+
+function renderLocationList() {
+  elements.locationList.innerHTML = rooms.map(renderLocationListRoom).join("");
+}
+
+function renderLocationListRoom(room) {
+  const roomItemCount = totalItems([room]);
+  return `
+    <details class="room-summary">
+      <summary>
+        <span class="summary-main">
+          <span class="expand-mark" aria-hidden="true">+</span>
+          <strong>${escapeHtml(room.name)}</strong>
+          <span class="id-pill">${escapeHtml(room.id)}</span>
+        </span>
+        <span class="summary-meta">
+          <span class="count-pill">${room.locations.length} ${room.locations.length === 1 ? "location" : "locations"}</span>
+          <span class="count-pill">${roomItemCount} ${roomItemCount === 1 ? "item" : "items"}</span>
+        </span>
+      </summary>
+      <div class="summary-locations">
+        ${room.locations.map(renderLocationListLocation).join("")}
+      </div>
+    </details>
+  `;
+}
+
+function renderLocationListLocation(location) {
+  return `
+    <div class="summary-location">
+      <div class="summary-location-header">
+        <span class="summary-location-title">
+          <strong>${escapeHtml(location.name)}</strong>
+          <span class="id-pill">${escapeHtml(location.id)}</span>
+        </span>
+        <span class="count-pill">${location.items.length}</span>
+      </div>
+      ${
+        location.items.length
+          ? `<ul class="summary-items">${location.items.map(renderLocationListItem).join("")}</ul>`
+          : `<p class="empty">No items yet.</p>`
+      }
+    </div>
+  `;
+}
+
+function renderLocationListItem(inventoryItem) {
+  return `
+    <li class="summary-item">
+      <span>${escapeHtml(inventoryItem.name)}</span>
+      <span class="id-pill">${escapeHtml(inventoryItem.id)}</span>
+    </li>
+  `;
 }
 
 function renderRoom(room) {
@@ -539,6 +598,67 @@ function nextItemId(location) {
     if (match) highest = Math.max(highest, Number(match[1]));
   }
   return `${location.id}-${highest + 1}`;
+}
+
+function slugifyLocationName(name) {
+  const slug = name
+    .trim()
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+  return slug || "location";
+}
+
+function nextLocationId(room, name) {
+  const baseId = slugifyLocationName(name);
+  const existingIds = new Set(room.locations.map((location) => location.id));
+
+  if (!existingIds.has(baseId)) return baseId;
+
+  let index = 2;
+  while (existingIds.has(`${baseId}-${index}`)) {
+    index += 1;
+  }
+
+  return `${baseId}-${index}`;
+}
+
+function setLocationStatus(message, type = "") {
+  elements.locationStatus.textContent = message;
+  elements.locationStatus.className = `mini-status ${type}`.trim();
+}
+
+function addLocation() {
+  const room = rooms.find((entry) => entry.id === elements.roomSelect.value);
+  const name = elements.newLocationName.value.trim();
+
+  if (!room) {
+    setLocationStatus("Choose a room first.", "error");
+    return;
+  }
+
+  if (!name) {
+    setLocationStatus("Type a location name.", "error");
+    elements.newLocationName.focus();
+    return;
+  }
+
+  const location = {
+    id: nextLocationId(room, name),
+    name,
+    items: [],
+  };
+
+  room.locations.push(location);
+  saveRooms();
+  elements.newLocationName.value = "";
+  renderLocationSelect();
+  elements.locationSelect.value = location.id;
+  renderInventory();
+  setLocationStatus(`Added ${location.name}. Publish to GitHub to share it.`, "success");
+  elements.itemName.focus();
 }
 
 function addItem(event) {
@@ -755,6 +875,13 @@ function escapeHtml(value) {
 }
 
 elements.roomSelect.addEventListener("change", renderLocationSelect);
+elements.addLocationButton.addEventListener("click", addLocation);
+elements.newLocationName.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    addLocation();
+  }
+});
 elements.form.addEventListener("submit", addItem);
 elements.searchInput.addEventListener("input", renderInventory);
 elements.resetButton.addEventListener("click", resetInventory);
