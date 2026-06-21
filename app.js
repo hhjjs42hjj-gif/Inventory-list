@@ -466,13 +466,15 @@ function renderStats() {
 
 function renderSelects() {
   elements.roomSelect.innerHTML = rooms.map((room) => `<option value="${escapeHtml(room.id)}">${escapeHtml(room.name)}</option>`).join("");
-  elements.deleteRoomSelect.innerHTML = rooms.map((room) => `<option value="${escapeHtml(room.id)}">${escapeHtml(room.name)}</option>`).join("");
+  elements.deleteRoomSelect.innerHTML = rooms.length
+    ? rooms.map((room) => `<option value="${escapeHtml(room.id)}">${escapeHtml(room.name)}</option>`).join("")
+    : `<option value="">No rooms available</option>`;
   elements.categorySelect.innerHTML = CATEGORIES.map((category) => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`).join("");
   elements.conditionSelect.innerHTML = CONDITIONS.map((condition) => `<option value="${escapeHtml(condition)}">${escapeHtml(condition)}</option>`).join("");
   elements.categorySelect.value = "Other";
   elements.conditionSelect.value = "Good";
   renderLocationSelect();
-  renderDeleteLocationSelect();
+  selectFirstDeletableItem();
 }
 
 function renderLocationSelect() {
@@ -484,9 +486,12 @@ function renderLocationSelect() {
 
 function renderDeleteLocationSelect() {
   const room = rooms.find((entry) => entry.id === elements.deleteRoomSelect.value) || rooms[0];
-  elements.deleteLocationSelect.innerHTML = room.locations
-    .map((location) => `<option value="${escapeHtml(location.id)}">${escapeHtml(location.name)} (${escapeHtml(location.id)})</option>`)
-    .join("");
+  const locations = room?.locations || [];
+
+  elements.deleteLocationSelect.innerHTML = locations.length
+    ? locations.map((location) => `<option value="${escapeHtml(location.id)}">${escapeHtml(location.name)} (${escapeHtml(location.id)})</option>`).join("")
+    : `<option value="">No locations in this room</option>`;
+  elements.deleteLocationSelect.disabled = locations.length === 0;
   renderDeleteItemSelect();
 }
 
@@ -500,6 +505,16 @@ function renderDeleteItemSelect() {
     : `<option value="">No items in this location</option>`;
   elements.deleteItemSelect.disabled = items.length === 0;
   elements.deleteItemButton.disabled = items.length === 0;
+}
+
+function selectFirstDeletableItem() {
+  const roomWithItems = rooms.find((room) => room.locations.some((location) => location.items.length > 0)) || rooms[0];
+  const locationWithItems = roomWithItems?.locations.find((location) => location.items.length > 0) || roomWithItems?.locations[0];
+
+  if (roomWithItems) elements.deleteRoomSelect.value = roomWithItems.id;
+  renderDeleteLocationSelect();
+  if (locationWithItems) elements.deleteLocationSelect.value = locationWithItems.id;
+  renderDeleteItemSelect();
 }
 
 function renderInventory() {
