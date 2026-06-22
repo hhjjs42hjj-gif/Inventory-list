@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-22T16:41:02.235Z",
+  "updatedAt": "2026-06-22T16:57:03.729Z",
   "rooms": [
     {
       "id": "kitchen",
@@ -925,12 +925,35 @@
         {
           "id": "dr-main",
           "name": "Main Area",
-          "items": []
-        },
-        {
-          "id": "dr-cabinet",
-          "name": "Dining Cabinet",
-          "items": []
+          "items": [
+            {
+              "id": "dr-main-1",
+              "name": "Ebony dining room table",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/22/2026"
+            },
+            {
+              "id": "dr-main-2",
+              "name": "Buffett",
+              "category": "Furniture",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/22/2026"
+            },
+            {
+              "id": "dr-main-3",
+              "name": "5-gal aquarium",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/22/2026"
+            }
+          ]
         },
         {
           "id": "coffee-bar",
@@ -1067,6 +1090,117 @@
             {
               "id": "lower-cabinet-2-2",
               "name": "Plastic pitchers(2)",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/22/2026"
+            }
+          ]
+        },
+        {
+          "id": "buffett-left-doors",
+          "name": "Buffett left doors",
+          "items": [
+            {
+              "id": "buffett-left-doors-1",
+              "name": "Blue vase",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/22/2026"
+            },
+            {
+              "id": "buffett-left-doors-2",
+              "name": "Backpacks",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/22/2026"
+            },
+            {
+              "id": "buffett-left-doors-3",
+              "name": "Sunscreen",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/22/2026"
+            },
+            {
+              "id": "buffett-left-doors-4",
+              "name": "Beach bag",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/22/2026"
+            },
+            {
+              "id": "buffett-left-doors-5",
+              "name": "Holiday napkins",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/22/2026"
+            },
+            {
+              "id": "buffett-left-doors-6",
+              "name": "Aquarium filters",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/22/2026"
+            },
+            {
+              "id": "buffett-left-doors-7",
+              "name": "Aquarium chemicals",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/22/2026"
+            }
+          ]
+        },
+        {
+          "id": "buffett-right-doors",
+          "name": "Buffett right doors",
+          "items": [
+            {
+              "id": "buffett-right-doors-1",
+              "name": "Snorkels",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/22/2026"
+            },
+            {
+              "id": "buffett-right-doors-2",
+              "name": "Banana boat sunscreen",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/22/2026"
+            },
+            {
+              "id": "buffett-right-doors-3",
+              "name": "Mardi Gras beads",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/22/2026"
+            },
+            {
+              "id": "buffett-right-doors-4",
+              "name": "Metal storage tub",
               "category": "Other",
               "condition": "Good",
               "estimatedValue": "",
