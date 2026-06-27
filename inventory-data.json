@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-27T19:32:59.409Z",
+  "updatedAt": "2026-06-27T19:36:59.165Z",
   "rooms": [
     {
       "id": "kitchen",
@@ -970,7 +970,17 @@
         {
           "id": "garage-main",
           "name": "Main Area",
-          "items": []
+          "items": [
+            {
+              "id": "garage-main-1",
+              "name": "Christmas decorations",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
         },
         {
           "id": "garage-tools",
@@ -1505,6 +1515,24 @@
               "estimatedValue": "",
               "notes": "",
               "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "lanai-main-12",
+              "name": "Floaties(3)",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "lanai-main-13",
+              "name": "Pool basketball hoop",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
             }
           ]
         },
@@ -1561,7 +1589,53 @@
         {
           "id": "shed-main",
           "name": "Main Area",
-          "items": []
+          "items": [
+            {
+              "id": "shed-main-1",
+              "name": "8ft ladder",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "shed-main-2",
+              "name": "Tropical nutrients",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "shed-main-3",
+              "name": "Saw horse",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "shed-main-4",
+              "name": "Pressure washer",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "shed-main-5",
+              "name": "Storage bin",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
         },
         {
           "id": "shed-shelves",
