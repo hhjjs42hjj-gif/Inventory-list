@@ -313,7 +313,7 @@ const GITHUB_SETTINGS_KEY = "houseInventory.githubSettings.v1";
 const DEFAULT_DATA_PATH = "inventory-data.json";
 
 let rooms = clone(HARDWIRED_ROOMS);
-let itemsCollapsed = false;
+let itemsCollapsed = true;
 let locationListExpanded = false;
 
 const elements = {
@@ -529,7 +529,7 @@ function selectFirstDeletableItem() {
 
 function renderInventory() {
   const visibleRooms = filteredRooms();
-  elements.inventory.innerHTML = visibleRooms.map(renderRoom).join("");
+  elements.inventory.innerHTML = itemsCollapsed ? "" : visibleRooms.map(renderRoom).join("");
   renderLocationList();
   renderStats();
   renderCollapseControls();
@@ -1023,7 +1023,10 @@ elements.form.addEventListener("submit", addItem);
 elements.deleteItemForm.addEventListener("submit", deleteSelectedItem);
 elements.deleteRoomSelect.addEventListener("change", renderDeleteLocationSelect);
 elements.deleteLocationSelect.addEventListener("change", renderDeleteItemSelect);
-elements.searchInput.addEventListener("input", renderInventory);
+elements.searchInput.addEventListener("input", () => {
+  if (elements.searchInput.value.trim()) itemsCollapsed = false;
+  renderInventory();
+});
 elements.collapseAllButton.addEventListener("click", collapseAllItems);
 elements.showAllButton.addEventListener("click", showAllItems);
 elements.resetButton.addEventListener("click", resetInventory);
