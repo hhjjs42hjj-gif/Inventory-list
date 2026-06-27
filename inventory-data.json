@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-27T18:55:54.252Z",
+  "updatedAt": "2026-06-27T19:32:59.409Z",
   "rooms": [
     {
       "id": "kitchen",
@@ -973,14 +973,94 @@
           "items": []
         },
         {
-          "id": "garage-shelves",
-          "name": "Shelves",
-          "items": []
-        },
-        {
           "id": "garage-tools",
           "name": "Tool Area",
-          "items": []
+          "items": [
+            {
+              "id": "garage-tools-1",
+              "name": "Ego trimmer",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "garage-tools-2",
+              "name": "Ego mower",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "garage-tools-3",
+              "name": "18v battery charger",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "garage-tools-4",
+              "name": "56v battery charger",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "garage-tools-5",
+              "name": "Tool box",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
+        },
+        {
+          "id": "upper-cabinet-1",
+          "name": "Upper Cabinet 1",
+          "items": [
+            {
+              "id": "upper-cabinet-1-1",
+              "name": "Self tapping screws",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
+        },
+        {
+          "id": "peg-board",
+          "name": "Peg board",
+          "items": [
+            {
+              "id": "peg-board-1",
+              "name": "Wrenches (3)",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "peg-board-2",
+              "name": "Tape(duct,electrical,painters)",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
         }
       ]
     },
@@ -1380,6 +1460,51 @@
               "estimatedValue": "",
               "notes": "",
               "dateAdded": "6/3/2026"
+            },
+            {
+              "id": "lanai-main-7",
+              "name": "Lounge chairs(2)",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "lanai-main-8",
+              "name": "Picnic table",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "lanai-main-9",
+              "name": "Alexa echo",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "lanai-main-10",
+              "name": "Propane heater",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "lanai-main-11",
+              "name": "Outdoor carpets(2)",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
             }
           ]
         },
