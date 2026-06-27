@@ -365,7 +365,8 @@ async function loadRooms() {
   if (!saved) return clone(HARDWIRED_ROOMS);
 
   try {
-    return JSON.parse(saved);
+    const savedRooms = normalizeRooms(JSON.parse(saved));
+    return savedRooms || clone(HARDWIRED_ROOMS);
   } catch {
     return clone(HARDWIRED_ROOMS);
   }
@@ -389,7 +390,7 @@ async function fetchPublishedRooms(path = DEFAULT_DATA_PATH) {
 }
 
 function normalizeRooms(roomData) {
-  if (!Array.isArray(roomData)) return null;
+  if (!Array.isArray(roomData) || roomData.length === 0) return null;
 
   return roomData.map((room) => ({
     id: String(room.id || ""),
