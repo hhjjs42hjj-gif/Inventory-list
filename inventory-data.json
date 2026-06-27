@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-22T16:57:03.729Z",
+  "updatedAt": "2026-06-27T18:55:54.252Z",
   "rooms": [
     {
       "id": "kitchen",
@@ -735,6 +735,93 @@
           "id": "ls1",
           "name": "Lazy Susan",
           "items": []
+        },
+        {
+          "id": "pantry",
+          "name": "Pantry",
+          "items": [
+            {
+              "id": "pantry-1",
+              "name": "Taylor K-2006",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "pantry-2",
+              "name": "Packaging tape",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "pantry-3",
+              "name": "Epsom salt",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "pantry-4",
+              "name": "Microfiber towels",
+              "category": "Cleaning",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "pantry-5",
+              "name": "Trash bags",
+              "category": "Cleaning",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "pantry-6",
+              "name": "Plastic spoons/forks",
+              "category": "Cleaning",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "pantry-7",
+              "name": "Liquid hand soap",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "pantry-8",
+              "name": "Drano(2)",
+              "category": "Cleaning",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "pantry-9",
+              "name": "Medicine",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
         }
       ]
     },
