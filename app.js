@@ -314,6 +314,7 @@ const DEFAULT_DATA_PATH = "inventory-data.json";
 
 let rooms = clone(HARDWIRED_ROOMS);
 let itemsCollapsed = false;
+let locationListExpanded = false;
 
 const elements = {
   locationList: document.querySelector("#locationList"),
@@ -540,7 +541,7 @@ function renderLocationList() {
 function renderLocationListRoom(room) {
   const roomItemCount = totalItems([room]);
   return `
-    <details class="room-summary">
+    <details class="room-summary" ${locationListExpanded ? "open" : ""}>
       <summary>
         <span class="summary-main">
           <span class="expand-mark" aria-hidden="true">+</span>
@@ -825,11 +826,13 @@ function resetInventory() {
 
 function collapseAllItems() {
   itemsCollapsed = true;
+  locationListExpanded = false;
   renderInventory();
 }
 
 function showAllItems() {
   itemsCollapsed = false;
+  locationListExpanded = true;
   renderInventory();
 }
 
