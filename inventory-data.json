@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-27T19:36:59.165Z",
+  "updatedAt": "2026-06-27T19:54:17.262Z",
   "rooms": [
     {
       "id": "kitchen",
@@ -841,6 +841,15 @@
               "estimatedValue": "",
               "notes": "",
               "dateAdded": "6/21/2026"
+            },
+            {
+              "id": "lr-main-2",
+              "name": "Sectional couch",
+              "category": "Furniture",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
             }
           ]
         },
@@ -1064,6 +1073,99 @@
             {
               "id": "peg-board-2",
               "name": "Tape(duct,electrical,painters)",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
+        },
+        {
+          "id": "music-work-station",
+          "name": "Music work station",
+          "items": [
+            {
+              "id": "music-work-station-1",
+              "name": "Les Paul studio guitar",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "music-work-station-2",
+              "name": "Fender Hot Rod(50 watts)",
+              "category": "Sports/Recreation",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
+        },
+        {
+          "id": "grow-tent",
+          "name": "Grow tent",
+          "items": [
+            {
+              "id": "grow-tent-1",
+              "name": "20lb CO2 tank (TW 25.2)",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "grow-tent-2",
+              "name": "Humidifier",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "grow-tent-3",
+              "name": "Ink bird humidistat",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "grow-tent-4",
+              "name": "Ink bird temperature",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "grow-tent-5",
+              "name": "Ink bird co2 monitor",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "grow-tent-6",
+              "name": "AC Infinity tent (5x4x2)",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "grow-tent-7",
+              "name": "Oscillating fan",
               "category": "Other",
               "condition": "Good",
               "estimatedValue": "",
@@ -1579,6 +1681,57 @@
           "id": "oc4",
           "name": "Outdoor Cabinet Shelf 4",
           "items": []
+        },
+        {
+          "id": "pool-equipment",
+          "name": "Pool equipment",
+          "items": [
+            {
+              "id": "pool-equipment-1",
+              "name": "Autopilot chlorine generator",
+              "category": "Electronics",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "pool-equipment-2",
+              "name": "TropiCal pool heater(inverter)",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "pool-equipment-3",
+              "name": "Chlorine cell",
+              "category": "Other",
+              "condition": "Fair",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "pool-equipment-4",
+              "name": "Hayward cartridge filter",
+              "category": "Other",
+              "condition": "Fair",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "pool-equipment-5",
+              "name": "Plumbing (2 cleaners, WF, MainD, SK, pool return)",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
         }
       ]
     },
