@@ -571,9 +571,7 @@ function renderLocationListLocation(location) {
         <span class="count-pill">${location.items.length}</span>
       </div>
       ${
-        itemsCollapsed
-          ? `<p class="empty">Items hidden.</p>`
-          : location.items.length
+        location.items.length
           ? `<ul class="summary-items">${location.items.map(renderLocationListItem).join("")}</ul>`
           : `<p class="empty">No items yet.</p>`
       }
