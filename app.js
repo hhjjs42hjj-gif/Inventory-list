@@ -313,12 +313,15 @@ const GITHUB_SETTINGS_KEY = "houseInventory.githubSettings.v1";
 const DEFAULT_DATA_PATH = "inventory-data.json";
 
 let rooms = clone(HARDWIRED_ROOMS);
+let itemsCollapsed = false;
 
 const elements = {
   locationList: document.querySelector("#locationList"),
   inventory: document.querySelector("#inventory"),
   stats: document.querySelector("#stats"),
   searchInput: document.querySelector("#searchInput"),
+  collapseAllButton: document.querySelector("#collapseAllButton"),
+  showAllButton: document.querySelector("#showAllButton"),
   resetButton: document.querySelector("#resetButton"),
   deleteItemForm: document.querySelector("#deleteItemForm"),
   deleteRoomSelect: document.querySelector("#deleteRoomSelect"),
@@ -464,6 +467,11 @@ function renderStats() {
     .join("");
 }
 
+function renderCollapseControls() {
+  elements.collapseAllButton.disabled = itemsCollapsed;
+  elements.showAllButton.disabled = !itemsCollapsed;
+}
+
 function renderSelects() {
   elements.roomSelect.innerHTML = rooms.map((room) => `<option value="${escapeHtml(room.id)}">${escapeHtml(room.name)}</option>`).join("");
   elements.deleteRoomSelect.innerHTML = rooms.length
@@ -522,6 +530,7 @@ function renderInventory() {
   elements.inventory.innerHTML = visibleRooms.map(renderRoom).join("");
   renderLocationList();
   renderStats();
+  renderCollapseControls();
 }
 
 function renderLocationList() {
@@ -561,7 +570,9 @@ function renderLocationListLocation(location) {
         <span class="count-pill">${location.items.length}</span>
       </div>
       ${
-        location.items.length
+        itemsCollapsed
+          ? `<p class="empty">Items hidden.</p>`
+          : location.items.length
           ? `<ul class="summary-items">${location.items.map(renderLocationListItem).join("")}</ul>`
           : `<p class="empty">No items yet.</p>`
       }
@@ -607,7 +618,9 @@ function renderLocation(location) {
         <span class="count-pill">${location.items.length}</span>
       </header>
       ${
-        location.items.length
+        itemsCollapsed
+          ? `<p class="empty">Items hidden.</p>`
+          : location.items.length
           ? `<ul class="items">${location.items.map((inventoryItem) => renderItem(inventoryItem)).join("")}</ul>`
           : `<p class="empty">No items yet.</p>`
       }
@@ -810,6 +823,16 @@ function resetInventory() {
   renderInventory();
 }
 
+function collapseAllItems() {
+  itemsCollapsed = true;
+  renderInventory();
+}
+
+function showAllItems() {
+  itemsCollapsed = false;
+  renderInventory();
+}
+
 function inferGitHubSettings() {
   const saved = localStorage.getItem(GITHUB_SETTINGS_KEY);
   if (saved) {
@@ -999,6 +1022,8 @@ elements.deleteItemForm.addEventListener("submit", deleteSelectedItem);
 elements.deleteRoomSelect.addEventListener("change", renderDeleteLocationSelect);
 elements.deleteLocationSelect.addEventListener("change", renderDeleteItemSelect);
 elements.searchInput.addEventListener("input", renderInventory);
+elements.collapseAllButton.addEventListener("click", collapseAllItems);
+elements.showAllButton.addEventListener("click", showAllItems);
 elements.resetButton.addEventListener("click", resetInventory);
 elements.githubForm.addEventListener("submit", publishToGitHub);
 elements.reloadGitHubButton.addEventListener("click", reloadGitHubData);

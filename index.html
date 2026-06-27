@@ -16,17 +16,21 @@
         <div class="stats" id="stats"></div>
       </header>
 
-      <section class="location-list-panel" aria-label="Location list">
-        <h2>Location List</h2>
-        <div id="locationList" class="location-list"></div>
-      </section>
-
       <section class="toolbar" aria-label="Inventory tools">
         <label class="search">
           <span>Search</span>
           <input id="searchInput" type="search" placeholder="Item, room, location, id" />
         </label>
-        <button class="secondary" id="resetButton" type="button">Reset to hardwired list</button>
+        <div class="toolbar-actions">
+          <button class="secondary" id="collapseAllButton" type="button">Collapse all</button>
+          <button class="secondary" id="showAllButton" type="button">Show all</button>
+          <button class="secondary" id="resetButton" type="button">Reset to hardwired list</button>
+        </div>
+      </section>
+
+      <section class="location-list-panel" aria-label="Location list">
+        <h2>Location List</h2>
+        <div id="locationList" class="location-list"></div>
       </section>
 
       <section class="delete-panel" aria-label="Delete inventory item">
