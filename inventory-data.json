@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-28T00:12:30.783Z",
+  "updatedAt": "2026-06-28T00:40:21.394Z",
   "rooms": [
     {
       "id": "kitchen",
@@ -895,7 +895,35 @@
         {
           "id": "mb-main",
           "name": "Main Area",
-          "items": []
+          "items": [
+            {
+              "id": "mb-main-1",
+              "name": "King bed",
+              "category": "Furniture",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "mb-main-2",
+              "name": "Side tables (2)",
+              "category": "Furniture",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "mb-main-3",
+              "name": "Dressers(2)",
+              "category": "Furniture",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
         },
         {
           "id": "mb-closet",
@@ -906,6 +934,375 @@
           "id": "mb-dresser",
           "name": "Dresser",
           "items": []
+        },
+        {
+          "id": "l-bath-closet",
+          "name": "L bath closet",
+          "items": [
+            {
+              "id": "l-bath-closet-1",
+              "name": "Viola",
+              "category": "Sports/Recreation",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "l-bath-closet-2",
+              "name": "Luggage",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "l-bath-closet-3",
+              "name": "Safe",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "l-bath-closet-4",
+              "name": "Weighing scale",
+              "category": "Electronics",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "l-bath-closet-5",
+              "name": "Clothes",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
+        },
+        {
+          "id": "r-bath-closet",
+          "name": "R bath closet",
+          "items": [
+            {
+              "id": "r-bath-closet-1",
+              "name": "Hiking boots",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "r-bath-closet-2",
+              "name": "Gucci purse",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "r-bath-closet-3",
+              "name": "Backpacks(2)",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "r-bath-closet-4",
+              "name": "Nest lock",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "r-bath-closet-5",
+              "name": "Portable steamer",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "r-bath-closet-6",
+              "name": "Jewelry",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "r-bath-closet-7",
+              "name": "Asakusa sumó club",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
+        },
+        {
+          "id": "upper-drawer-1",
+          "name": "Upper drawer 1",
+          "items": [
+            {
+              "id": "upper-drawer-1-1",
+              "name": "Minoxidil",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "upper-drawer-1-2",
+              "name": "Hair ties",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "upper-drawer-1-3",
+              "name": "Toiletries",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
+        },
+        {
+          "id": "upper-drawer-2",
+          "name": "Upper drawer 2",
+          "items": [
+            {
+              "id": "upper-drawer-2-1",
+              "name": "Pipe cleaners",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "upper-drawer-2-2",
+              "name": "Dermal masks",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "upper-drawer-2-3",
+              "name": "Clipper and guards",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
+        },
+        {
+          "id": "upper-drawer-3",
+          "name": "Upper drawer 3",
+          "items": [
+            {
+              "id": "upper-drawer-3-1",
+              "name": "Mach 3 blades",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
+        },
+        {
+          "id": "cabinet-with-doors",
+          "name": "Cabinet with doors",
+          "items": [
+            {
+              "id": "cabinet-with-doors-1",
+              "name": "Baby powder",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "cabinet-with-doors-2",
+              "name": "PerioProtect",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "cabinet-with-doors-3",
+              "name": "Tampons",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "cabinet-with-doors-4",
+              "name": "Drakkar",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "cabinet-with-doors-5",
+              "name": "Cotton swabs",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
+        },
+        {
+          "id": "lower-drawer-1",
+          "name": "Lower drawer 1",
+          "items": [
+            {
+              "id": "lower-drawer-1-1",
+              "name": "Combs",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "lower-drawer-1-2",
+              "name": "Hotel soap",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "lower-drawer-1-3",
+              "name": "Scissors",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "lower-drawer-1-4",
+              "name": "Face sunscreen",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "lower-drawer-1-5",
+              "name": "Tom’s of Maine",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
+        },
+        {
+          "id": "lower-drawer-2",
+          "name": "Lower drawer 2",
+          "items": [
+            {
+              "id": "lower-drawer-2-1",
+              "name": "Hair dryer",
+              "category": "Electronics",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "lower-drawer-2-2",
+              "name": "Curling iron",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "lower-drawer-2-3",
+              "name": "Thin pads",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
+        },
+        {
+          "id": "r-sink-cabinet",
+          "name": "R sink cabinet",
+          "items": [
+            {
+              "id": "r-sink-cabinet-1",
+              "name": "Shampoo/conditioner",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "r-sink-cabinet-2",
+              "name": "Bleach",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "r-sink-cabinet-3",
+              "name": "Petroleum jelly",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
         }
       ]
     },
