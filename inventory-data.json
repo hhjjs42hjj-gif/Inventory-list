@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-27T19:54:17.262Z",
+  "updatedAt": "2026-06-28T00:12:30.783Z",
   "rooms": [
     {
       "id": "kitchen",
@@ -1102,6 +1102,15 @@
               "estimatedValue": "",
               "notes": "",
               "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "music-work-station-3",
+              "name": "Boss GT-10",
+              "category": "Electronics",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
             }
           ]
         },
@@ -1183,7 +1192,62 @@
         {
           "id": "office-desk",
           "name": "Desk",
-          "items": []
+          "items": [
+            {
+              "id": "office-desk-1",
+              "name": "Mac Pro",
+              "category": "Electronics",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "office-desk-2",
+              "name": "Mac-mini",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "office-desk-3",
+              "name": "HP VH240a Monitor",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "office-desk-4",
+              "name": "MultiSync E222W",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "office-desk-5",
+              "name": "Edifier speakers",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            },
+            {
+              "id": "office-desk-6",
+              "name": "Korg Triton LE keyboard",
+              "category": "Other",
+              "condition": "Good",
+              "estimatedValue": "",
+              "notes": "",
+              "dateAdded": "6/27/2026"
+            }
+          ]
         },
         {
           "id": "office-closet",
